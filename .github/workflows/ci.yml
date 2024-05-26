@@ -83,10 +83,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Enviroment variable
-        if: ${{ env.ENVIRONMENT == 'pre' }}
-        run: export ENVIRONMENTMANIFEST="dev" 
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Change manifest
-        if: ${{ env.ENVIRONMENT == 'pro' }}
-        run: export ENVIRONMENTMANIFEST="pro"
+      - name: Run build manifest script
+        run: ./build_manifest.sh ${{ env.ENVIRONMENT }}

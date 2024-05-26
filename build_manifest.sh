@@ -14,6 +14,8 @@ else
 fi
 
 # Reemplaza los marcadores de posición en la plantilla con los valores de configuración
-sed "s|\${REPLICAS}|$REPLICAS|g; s|\${IMAGE}|$IMAGE|g" deployment.yaml.template > deployment.yaml
+sed "s|\${REPO}|$REPO|g; s|\${ENVIROMENT}|$ENVIROMENT|g" deployment.yaml.template > /k8s/CD.yml
 
-echo "Manifiesto de despliegue generado para el entorno $ENVIRONMENT"
+#sed "s|\${REPLICAS}|$REPLICAS|g; s|\${IMAGE}|$IMAGE|g" deployment.yaml.template > deployment.yaml
+
+echo "Manifiesto CD.yml de despliegue generado para el entorno $ENVIRONMENT"
