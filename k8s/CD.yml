@@ -16,8 +16,14 @@ spec:
   #desplegamos con HELM, hay que hacerlo obligatoriamente para usar Image Updater
     path: HELM/apppython #apppython/k8s-test # the k8s source files 
     repoURL: https://github.com/garrijuan/test-Gitops.git
-    targetRevision: ${ENVIROMENT}
+    targetRevision:
+      configMapKeyRef:
+                  name: dev
+                  key: ENVIROMENT
   destination:
     server: 'https://kubernetes.default.svc' #Target cluster 
-    namespace: ${ENVIROMENT} #namespace where we want to deploy
+    namespace:                               #namespace where we want to deploy   
+    configMapKeyRef:
+                  name: dev
+                  key: ENVIROMENT
   project: default
