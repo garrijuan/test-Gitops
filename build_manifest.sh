@@ -5,9 +5,9 @@ ENVIRONMENT=$1
 
 # Lee las variables de configuración correspondientes al entorno
 if [ "$ENVIRONMENT" == "dev" ]; then
-  source ~/config-dev.env
+  source config-dev.env
 elif [ "$ENVIRONMENT" == "pro" ]; then
-  source ~/config-prod.env
+  source config-prod.env
 else
   echo "Entorno no válido"
   exit 1
