@@ -2,11 +2,16 @@
 # :rocket: GitOps :rocket: 
 
 
-# RAMA DEV
 
-change 3 with token github
+------script two enviroment-----
 
 
+
+
+
+
+
+-------canary--------
 
 1.install 
 kubectl create namespace argo-rollouts
