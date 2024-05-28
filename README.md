@@ -16,8 +16,6 @@ CRD_template.yml --script base con variables de entorno
 
 
 
-
-
 -------canary--------
 
 1.install 
