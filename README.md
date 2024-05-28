@@ -4,8 +4,15 @@
 
 
 ------script two enviroment-----
+sudo apt-get install -y gettext
 
+create values-dev.yml
+create values-pro.yml
 
+CRD_template.yml --script base con variables de entorno
+--para desplegar utilizando values especidicos segun que entorno
+./deploy.sh dev
+./deploy.sh pro
 
 
 
