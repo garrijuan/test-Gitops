@@ -3,7 +3,8 @@ name: CI
 on:
   push:
     branches:
-      - dev
+      - main
+
 
 env:
     ENVIRONMENT: ${{ startsWith(github.ref, 'refs/heads/main') && 'pro' || 'dev' }}
@@ -76,15 +77,6 @@ jobs:
 
       - name: Push Docker image to PRO
         if: ${{ env.ENVIRONMENT == 'pro' }}
+
         run: docker push ${{ secrets.DOCKER_USERNAME }}/mircroserver_pro:${{ env.COMMIT_SHORT_SHA }}
 
-  manifest_build:
-    name: Build manifest k8s and HELM
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Run build manifest script
-        run: ./build_manifest.sh ${{ env.ENVIRONMENT }}

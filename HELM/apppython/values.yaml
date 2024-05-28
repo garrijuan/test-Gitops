@@ -6,7 +6,7 @@ strategyType: Recreate
 # Restart policy
 restartPolicy: Always
 
-# Container image configuration
+# Container image configuration 
 image:
   repository: garrijuan/test_api_python
   tag: latest
