@@ -4,12 +4,10 @@ on:
   push:
     branches:
       - dev
-
-
+      
 env:
     ENVIRONMENT: ${{ startsWith(github.ref, 'refs/heads/main') && 'pro' || 'dev' }}
       
-
 jobs:
   test:
     name: python Test
