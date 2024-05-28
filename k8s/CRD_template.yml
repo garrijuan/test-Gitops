@@ -3,7 +3,7 @@ kind: Application
 metadata:
 #muy importante para usar Image Updater
   annotations:
-    argocd-image-updater.argoproj.io/image-list: myalias=garrijuan/mircroservertesting_dev #mircroservertesting_dev
+    argocd-image-updater.argoproj.io/image-list: myalias={{myalias}} #mircroservertesting_dev
     argocd-image-updater.argoproj.io/myalias.helm.image-tag: image.tag
     argocd-image-updater.argoproj.io/myalias.helm.image-name: image.repository
     argocd-image-updater.argoproj.io/myalias.update-strategy: latest
@@ -16,8 +16,8 @@ spec:
   #desplegamos con HELM, hay que hacerlo obligatoriamente para usar Image Updater
     path: HELM/apppython #apppython/k8s-test # the k8s source files 
     repoURL: https://github.com/garrijuan/test-Gitops.git
-    targetRevision: dev
+    targetRevision: {{namespace}}
   destination:
     server: 'https://kubernetes.default.svc' #Target cluster 
-    namespace: dev                           #namespace where we want to deploy   
+    namespace: {{namespace}}                           #namespace where we want to deploy   
   project: default
